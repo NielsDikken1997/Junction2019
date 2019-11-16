@@ -2,5 +2,12 @@
     <div class="flex">
         <h1>Shopping cart</h1>
         <a mat-raised-button color="primary" [routerLink]="'/checkout'">Buy</a>
+
+        <div>
+            Is shaky customer? {{isShakyCustomer ? 'Yes' : 'No'}}
+        </div>
+        <div style="word-break: break-all;">
+            <code>{{data}}</code>
+        </div>
     </div>
 </div>
