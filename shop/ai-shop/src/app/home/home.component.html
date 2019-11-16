@@ -2,7 +2,7 @@
 <div class="columns">
     <div class="column">
         <a [routerLink]="'/product/2'">
-            <mat-card class="lamp-card">
+            <mat-card class="lamp-card" data-aoi="lampcard">
                 <!-- <mat-card-header>
                     <mat-card-title>The lamp</mat-card-title>
                     <mat-card-subtitle>Super nice</mat-card-subtitle>
@@ -12,7 +12,7 @@
                     <p>
                     Designer desk lamp - Findeso
                     </p>
-                    <p>120€</p>
+                    <p data-aoi-click>120€</p>
                 </mat-card-content>
                 <!-- <mat-card-actions>
                     <a mat-button color="primary" [routerLink]="'/product/1'">MORE</a>
@@ -23,7 +23,7 @@
     </div>
     <div class="column">
         <a [routerLink]="'/product/2'">
-            <mat-card class="jeans-card">
+            <mat-card class="jeans-card" data-aoi="jeanscard">
                 <!-- <mat-card-header>
                     <mat-card-title>The jeans</mat-card-title>
                     <mat-card-subtitle>Super nice</mat-card-subtitle>
@@ -43,3 +43,49 @@
         </a>
     </div>
 </div>
+
+
+<div class="columns">
+        <div class="column">
+            <a [routerLink]="'/product/2'">
+                <mat-card class="lamp-card" data-aoi="othercard1">
+                    <!-- <mat-card-header>
+                        <mat-card-title>The lamp</mat-card-title>
+                        <mat-card-subtitle>Super nice</mat-card-subtitle>
+                    </mat-card-header> -->
+                    <img mat-card-image src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="height:400px;object-fit:cover" alt="Photo of a lamp">
+                    <mat-card-content>
+                        <p>
+                        TEST1
+                        </p>
+                        <p>120€</p>
+                    </mat-card-content>
+                    <!-- <mat-card-actions>
+                        <a mat-button color="primary" [routerLink]="'/product/1'">MORE</a>
+                        <button mat-button>BUY</button>
+                    </mat-card-actions> -->
+                </mat-card>
+            </a>
+        </div>
+        <div class="column">
+            <a [routerLink]="'/product/2'">
+                <mat-card class="jeans-card" data-aoi="othercard2">
+                    <!-- <mat-card-header>
+                        <mat-card-title>The jeans</mat-card-title>
+                        <mat-card-subtitle>Super nice</mat-card-subtitle>
+                    </mat-card-header> -->
+                    <img mat-card-image src="https://images.pexels.com/photos/52574/pexels-photo-52574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="height:400px;object-fit:cover" alt="Photo of a jeans">
+                    <mat-card-content>
+                        <p>
+                        TEST2
+                        </p>
+                        <p>55€</p>
+                    </mat-card-content>
+                    <!-- <mat-card-actions>
+                        <a mat-button color="primary" [routerLink]="'/product/2'">MORE</a>
+                        <button mat-button>BUY</button>
+                    </mat-card-actions> -->
+                </mat-card>
+            </a>
+        </div>
+    </div>
