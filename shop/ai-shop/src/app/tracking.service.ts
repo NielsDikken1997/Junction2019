@@ -41,8 +41,6 @@ export class TrackingService {
 
     checkVisibleAois() {
         let options = {
-            root: document.querySelector('#content-container'),
-            rootMargin: '0px',
             threshold: 0.5
         }
         let callback = (entries, observer) => { 
@@ -51,6 +49,7 @@ export class TrackingService {
 
                 if (entry.intersectionRatio >= 0.5) {
                     // moved in
+                    console.log(`${aoiName} visible`);
                     this.aoiEntries[aoiName] = Date.now();    
                 } else {
                     // moved out

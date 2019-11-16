@@ -14,20 +14,22 @@ export class TrackingComponent implements OnInit {
   private pageDuration = 0;
 
   private fullData = "";
+  private csvData = "";
 
   constructor() { }
 
   ngOnInit() {
-    let csvData = "images_visible,images_hover,images_click,summary_visible,summary_hover,summary_click,details_visible,details_hover,details_click,reviews_visible,reviews_hover,reviews_click,totalTime\n";
+    let csvData = "id,images_visible,images_hover,images_click,summary_visible,summary_hover,summary_click,details_visible,details_hover,details_click,reviews_visible,reviews_hover,reviews_click,totalTime\n";
 
     if (window.localStorage.getItem('train_data')) {
       csvData = window.localStorage.getItem('train_data');
     }
 
-    let aoiData = JSON.parse(window.localStorage.getItem('aois'));
-    aoiData = Object.values(aoiData)[0];
+    let aoiDataRaw = JSON.parse(window.localStorage.getItem('aois'));
+    let aoiData = Object.values(aoiDataRaw)[0];
 
     let fullData = {};
+    let csvRow = Object.keys(aoiDataRaw)[0] + ",";
 
     for (let key in aoiData.visible) {
       this.aois.push(key);
@@ -49,18 +51,21 @@ export class TrackingComponent implements OnInit {
       fullData[key + '_visible'] = this.aoiVisible[key] || 0;
       fullData[key + '_hover'] = this.aoiHover[key] || 0;
       fullData[key + '_click'] = this.aoiClick[key] || 0;
-      csvData += fullData[key + '_visible'] + "," + fullData[key + '_hover'] + "," + fullData[key + '_click'] + ",";
+      csvRow += fullData[key + '_visible'] + "," + fullData[key + '_hover'] + "," + fullData[key + '_click'] + ",";
     }
     fullData['totalTime'] = this.pageDuration;
-    csvData += this.pageDuration
+    csvRow += this.pageDuration + "\n";
 
     this.fullData = JSON.stringify(fullData);
 
-    csvData += `\n`;
-
-    window.localStorage.setItem('train_data', csvData);
-
+    if (csvData.indexOf(csvRow) == -1) {
+      csvData += csvRow;
+      window.localStorage.setItem('train_data', csvData);
+    }
     this.csvData = csvData;
   }
 
+  clearCsvData() {
+    window.localStorage.setItem('train_data', "");
+  }
 }
