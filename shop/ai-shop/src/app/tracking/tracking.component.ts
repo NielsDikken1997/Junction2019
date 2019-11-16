@@ -26,7 +26,7 @@ export class TrackingComponent implements OnInit {
     }
 
     let aoiDataRaw = JSON.parse(window.localStorage.getItem('aois'));
-    let aoiData = Object.values(aoiDataRaw)[0];
+    let aoiData: any = Object.values(aoiDataRaw)[0];
 
     let fullData = {};
     let csvRow = Object.keys(aoiDataRaw)[0] + ",";
