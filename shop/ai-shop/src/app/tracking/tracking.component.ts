@@ -18,6 +18,12 @@ export class TrackingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let csvData = "images_visible,images_hover,images_click,summary_visible,summary_hover,summary_click,details_visible,details_hover,details_click,reviews_visible,reviews_hover,reviews_click,totalTime\n";
+
+    if (window.localStorage.getItem('train_data')) {
+      csvData = window.localStorage.getItem('train_data');
+    }
+
     let aoiData = JSON.parse(window.localStorage.getItem('aois'));
     aoiData = Object.values(aoiData)[0];
 
@@ -34,7 +40,7 @@ export class TrackingComponent implements OnInit {
         this.aoiHover[key] = duration;
       }
       if (aoiData.clicked[key]) {
-        let duration = aoiData.clicked[key].reduce((prev, item) => prev + item.duration, 0);
+        let duration = aoiData.clicked[key];
         this.aoiClick[key] = duration;
       }
 
@@ -43,9 +49,18 @@ export class TrackingComponent implements OnInit {
       fullData[key + '_visible'] = this.aoiVisible[key] || 0;
       fullData[key + '_hover'] = this.aoiHover[key] || 0;
       fullData[key + '_click'] = this.aoiClick[key] || 0;
+      csvData += fullData[key + '_visible'] + "," + fullData[key + '_hover'] + "," + fullData[key + '_click'] + ",";
     }
+    fullData['totalTime'] = this.pageDuration;
+    csvData += this.pageDuration
 
     this.fullData = JSON.stringify(fullData);
+
+    csvData += `\n`;
+
+    window.localStorage.setItem('train_data', csvData);
+
+    this.csvData = csvData;
   }
 
 }
