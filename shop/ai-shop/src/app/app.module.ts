@@ -13,6 +13,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartComponent } from './cart/cart.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TrackingComponent } from './tracking/tracking.component';
     LoginComponent,
     HomeComponent,
     CartComponent,
-    TrackingComponent
+    TrackingComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

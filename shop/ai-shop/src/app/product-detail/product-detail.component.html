@@ -2,10 +2,10 @@
     <div class="flex mb-4">
         <div class="w-1/2 h-full" data-aoi="images">
             <div class="inline-block w-1/6 align-top h-full">
-                <img class="h-1/4 border-b-4 border-black" src="../../assets/JacketGirl.png" data-aoi-click>
-                <img class="h-1/4 pt-1 pb-1" src="../../assets/JacketGirl1.png" data-aoi-click>
-                <img class="h-1/4 pb-1" src="../../assets/JacketGirl2.png" data-aoi-click>
-                <img class="h-1/4" src="../../assets/JacketGirl3.png" data-aoi-click>
+                <img class="h-1/4 border-b-4 border-black rounded-lg" src="../../assets/JacketGirl.png" data-aoi-click>
+                <img class="h-1/4 pt-1 pb-1 rounded-lg" src="../../assets/JacketGirl1.png" data-aoi-click>
+                <img class="h-1/4 pb-1 rounded-lg" src="../../assets/JacketGirl2.png" data-aoi-click>
+                <img class="h-1/4 rounded-lg" src="../../assets/JacketGirl3.png" data-aoi-click>
             </div>
             <div class="inline-block w-3/4 h-full ">
                 <img class="rounded-lg px-2" src="../../assets/JacketGirl.png">
@@ -14,19 +14,45 @@
         </div>
         <div class="w-1/2 pl-10 pt-2" data-aoi="summary">
             <!-- <div class="w-full h-64 bg-white rounded-lg"> -->
-            <p class="font-bold text-xl">Denim aviator jacket with contrast borg collar</p>
-            <p class="text-xl py-2">&euro;89,95</p>
-            <p class="text-xl py-2">Size</p>
+            <p class="font-bold text-3xl">Denim aviator jacket with contrast borg collar</p>
+            <p class="text-xl underline pt-5">Price</p>
+            <p class="text-xl py-1">&euro;89,95</p>
+            <p class="text-xl underline pt-5">Size</p>
+            <p class="text-2xl py-1">
+                <b>S</b> - M - L - XL
+            </p>
+            <p class="text-xl underline pt-5">Color</p>
+            <img class="pt-1 rounded-lg h-16" src="../../assets/Colors2.png">
             <!-- </div> -->
         </div>
     </div>
     <!-- Full details -->
-    <div class="h-64 bg-white w-full" data-aoi="details">
-        <div class="w-1/2">
-            <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Details</div>
-            <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Look & Fit</div>
-            <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Wash info</div>
-            <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Origin</div>
+    <div class="flex -mx-2">
+        <div class="w-1/2 px-2">
+            <div id="1" class="bg-white rounded-lg">
+                <div class="py-3">
+                    <div class="inline-block text-xl font-bold w-1/4 text-center font-bold underline" data-aoi-click>Details</div>
+                    <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Look & Fit</div>
+                    <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Wash info</div>
+                    <div class="inline-block text-xl font-bold w-1/4 text-center" data-aoi-click>Origin</div>
+                </div>
+                <div class="text-xl font-bold pl-12 py-2">Jacket by ASOS DESIGN</div>
+                <div class="pl-12 pb-5">
+                    - Part of our responsible edit <br>
+                    - Zero-waste design <br>
+                    - Created using every inch of fabric, so nothing goes to waste <br>
+                    - Borg collar <br>
+                    - Double-breasted opening <br>
+                    - Functional pockets <br>
+                    - Regular fit <br>
+                    - Just select your usual size <br>
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 px-2">
+            <div class="bg-teal-900 h-full rounded-lg">
+                <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
+            </div>
         </div>
     </div>
 
@@ -34,7 +60,9 @@
     <div class="h-10 w-full"></div>
 
     <!-- Reviews -->
-    <div class="h-64 bg-white w-full" data-aoi="reviews">Reviews</div>
+    <div data-aoi="reviews">
+        <img class="pb-10" src="../../assets/Review2.png" alt="picture of reviews">
+    </div>
 </div>
 
 <div class="h-16 bg-transparent"></div>
