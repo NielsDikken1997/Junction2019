@@ -20,6 +20,9 @@ export class TrackingService {
 
     private checkInterval: number = 100;
 
+    private startTime: number = 0;
+    private pageDuration: number = 0;
+
     start() {
         console.log(document.querySelector('[data-aoi]'))
         if (!document.querySelector('[data-aoi]')) {
@@ -27,6 +30,7 @@ export class TrackingService {
         }
 
         this.id = Date.now();
+        this.startTime = Date.now();
         // reset aois, one product at a time only for now
         window.localStorage.setItem('aois', JSON.stringify({}));
         
@@ -99,6 +103,8 @@ export class TrackingService {
                 this.saveVisibleAoiEnd(key);
             }
         }
+
+        this.pageDuration = Date.now() - this.startTime;
     }
 
     createMouseMoveHandler() {
@@ -185,13 +191,15 @@ export class TrackingService {
             aois[this.id] = {
                 visible: {},
                 hovered: {},
-                clicked: {}
+                clicked: {},
+                duration: 0
             };
         }
 
         aois[this.id].visible = this.aoiVisible;
         aois[this.id].hovered = this.aoiHovered;
         aois[this.id].clicked = this.aoiInteracted;
+        aois[this.id].duration = this.pageDuration;
 
         window.localStorage.setItem('aois', JSON.stringify(aois));
     }

@@ -1,4 +1,11 @@
 
-<div *ngFor="let aoi of aois; index as i;">
-    {{aoi}}: Hovered: {{aoiHover[aoi]}}, Visible: {{aoiVisible[aoi]}}, Clicked: {{aoiClick[aoi]}}
+<div>
+    <h3>Time on page: {{pageDuration}}</h3>
+    <div *ngFor="let aoi of aois; index as i;">
+        {{aoi}}: Hovered: {{aoiHover[aoi]}}, Visible: {{aoiVisible[aoi]}}, Clicked: {{aoiClick[aoi]}}
+    </div>
+</div>
+
+<div>
+    {{fullData}}
 </div>
