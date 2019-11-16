@@ -12,6 +12,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartComponent } from './cart/cart.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,10 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailComponent,
     CheckoutComponent,
     LoginComponent,
+    AddressComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
