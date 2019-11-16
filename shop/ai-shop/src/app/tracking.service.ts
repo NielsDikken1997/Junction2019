@@ -18,15 +18,17 @@ export class TrackingService {
 
     private id: number;
 
-    private checkInterval: number = 1000;
+    private checkInterval: number = 100;
 
     start() {
-        this.id = Date.now();
-
-        if (!window.localStorage.getItem('aois')) {
-            let baseObject = {};
-            window.localStorage.setItem('aois', JSON.stringify(baseObject));
+        console.log(document.querySelector('[data-aoi]'))
+        if (!document.querySelector('[data-aoi]')) {
+            return;
         }
+
+        this.id = Date.now();
+        // reset aois, one product at a time only for now
+        window.localStorage.setItem('aois', JSON.stringify({}));
         
         this.checkVisibleAois();
         this.checkHoveredAois();
@@ -49,14 +51,7 @@ export class TrackingService {
                 } else {
                     // moved out
                     if (this.aoiEntries[aoiName]) {
-                        let timeInside = Date.now() - this.aoiEntries[aoiName];
-
-                        this.aoiVisible[aoiName].push({
-                            start: this.aoiEntries[aoiName],
-                            duration: timeInside
-                        });
-
-                        this.save();
+                        this.saveVisibleAoiEnd(aoiName);
                     }
                 }
             });
@@ -74,6 +69,19 @@ export class TrackingService {
         });
     }
 
+    saveVisibleAoiEnd(aoiName) {
+        let timeInside = Date.now() - this.aoiEntries[aoiName];
+
+        this.aoiVisible[aoiName].push({
+            start: this.aoiEntries[aoiName],
+            duration: timeInside
+        });
+
+        this.aoiEntries[aoiName] = null;
+
+        this.save();
+    }
+
     checkHoveredAois() {
         document.querySelectorAll('[data-aoi]').forEach(el => {
             let aoiName = el.getAttribute('data-aoi');
@@ -83,6 +91,14 @@ export class TrackingService {
         });
 
         document.addEventListener('mousemove', this.createMouseMoveHandler());
+    }
+
+    handlePageChange() {
+        for (let key in this.aoiEntries) {
+            if (this.aoiEntries[key]) {
+                this.saveVisibleAoiEnd(key);
+            }
+        }
     }
 
     createMouseMoveHandler() {
@@ -112,8 +128,6 @@ export class TrackingService {
 
             if (x >= elPos.left && x <= elPos.right && y >= elPos.top && y <= elPos.bottom) {
                 found = aoiName;
-
-                console.log("Mouse in");
 
                 if (!this.aoiHoveredEntries[aoiName]) {
                     this.aoiHoveredEntries[aoiName] = Date.now();

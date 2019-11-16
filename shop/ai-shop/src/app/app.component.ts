@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TrackingService } from './tracking.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { filter }                from 'rxjs/operators';
 
 @Component({
@@ -18,7 +18,16 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.trackingService.start();
+        setTimeout(() => {
+          this.trackingService.start();
+        }, 100);
+        
       });
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationStart))
+      .subscribe(() => {
+        this.trackingService.handlePageChange();
+      })
   }
 }
