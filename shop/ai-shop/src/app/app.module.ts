@@ -11,6 +11,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartComponent } from './cart/cart.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailComponent,
     CheckoutComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    TrackingComponent
   ],
   imports: [
     BrowserModule,
