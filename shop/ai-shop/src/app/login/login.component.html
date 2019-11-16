@@ -11,15 +11,15 @@
     <div class="w-1/2">
         <div class="ml-64 mr-10">
             <div class="text-center w-full"><b>Quick sign in</b></div>
-            <input class="my-3 bg-white p-3 rounded-lg w-full" value="sam.doe@gmail.com"/>
-            <input class="my-3 bg-white p-3 rounded-lg w-full" type="password" value="azerty"/>
-            <button class="my-3 bg-black text-white p-3 rounded-lg w-full  hover:bg-green-500">Sign in</button>
+            <input class="my-3 bg-white p-3 rounded-lg w-full" placeholder="sam.doe@gmail.com"/>
+            <input class="my-3 bg-white p-3 rounded-lg w-full" type="password" placeholder="azerty"/>
+            <button [routerLink]="'/address'" class="block my-3 bg-black text-white p-3 rounded-lg w-full  hover:bg-green-500">Sign in</button>
         </div>
     </div>
     <div class="w-1/2">
         <div class="text-center w-full opacity-0"><b>—</b></div>
         <div class="mr-64 ml-10">
-            <button class="my-3 bg-black text-white p-3 rounded-lg w-full hover:bg-green-500">Sign up</button>
+            <a [routerLink]="'/address'" class="text-center block my-3 bg-black text-white p-3 rounded-lg w-full hover:bg-green-500">Sign up</a>
         </div>
     </div>
     </div>

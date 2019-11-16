@@ -13,6 +13,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartComponent } from './cart/cart.component';
 import { AddressComponent } from './address/address.component';
+import { LastcheckComponent } from './lastcheck/lastcheck.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,12 @@ import { AddressComponent } from './address/address.component';
     ProductDetailComponent,
     CheckoutComponent,
     LoginComponent,
+    LastcheckComponent,
     AddressComponent,
     HomeComponent,
     CartComponent,
-    AddressComponent
+    AddressComponent,
+    LastcheckComponent
   ],
   imports: [
     BrowserModule,
