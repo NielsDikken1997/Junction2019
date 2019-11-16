@@ -23,12 +23,16 @@ export class TrackingService {
     private startTime: number = 0;
     private pageDuration: number = 0;
 
+    private mouseMoveListener: any;
+    private observer: any;
+
     start() {
         console.log(document.querySelector('[data-aoi]'))
         if (!document.querySelector('[data-aoi]')) {
             return;
         }
 
+        this.pageDuration = 0;
         this.id = Date.now();
         this.startTime = Date.now();
         // reset aois, one product at a time only for now
@@ -60,10 +64,10 @@ export class TrackingService {
             });
         };
           
-        let observer = new IntersectionObserver(callback, options);
+        this.observer = new IntersectionObserver(callback, options);
 
         document.querySelectorAll('[data-aoi]').forEach(el => {
-            observer.observe(el);
+            this.observer.observe(el);
 
             let aoiName = el.getAttribute('data-aoi');
 
@@ -93,7 +97,9 @@ export class TrackingService {
             this.aoiHoveredEntries[aoiName] = null;
         });
 
-        document.addEventListener('mousemove', this.createMouseMoveHandler());
+        this.mouseMoveListener = this.createMouseMoveHandler();
+
+        document.addEventListener('mousemove', this.mouseMoveListener);
     }
 
     handlePageChange() {
@@ -103,7 +109,15 @@ export class TrackingService {
             }
         }
 
-        this.pageDuration = Date.now() - this.startTime;
+        if (this.startTime) {
+            this.pageDuration = Date.now() - this.startTime;
+            document.removeEventListener('mousemove', this.mouseMoveListener);
+            this.save();
+        }
+        
+        if (this.observer) {
+            this.observer.disconnect();
+        }
     }
 
     createMouseMoveHandler() {
@@ -200,6 +214,39 @@ export class TrackingService {
         aois[this.id].clicked = this.aoiInteracted;
         aois[this.id].duration = this.pageDuration;
 
+        console.log("Duration ", this.pageDuration)
+
         window.localStorage.setItem('aois', JSON.stringify(aois));
+    }
+
+    generateTrackingSummary() {
+        let aoiDataRaw = JSON.parse(window.localStorage.getItem('aois'));
+        let aoiData: any = Object.values(aoiDataRaw)[0];
+
+        let fullData = {};
+        console.log(aoiData);
+
+        for (let key in aoiData.visible) {
+            fullData[key + '_visible'] = 0;
+            fullData[key + '_hover'] = 0;
+            fullData[key + '_click'] = 0;
+            if (aoiData.visible[key]) {
+                let duration = aoiData.visible[key].reduce((prev, item) => prev + item.duration, 0);
+                fullData[key + '_visible'] = duration || 0;
+            }
+            if (aoiData.hovered[key]) {
+                let duration = aoiData.hovered[key].reduce((prev, item) => prev + item.duration, 0);
+                fullData[key + '_hover'] = duration || 0;
+            }
+            if (aoiData.clicked[key]) {
+                let duration = aoiData.clicked[key];
+                fullData[key + '_click'] = duration || 0;
+            }
+
+            this.pageDuration = aoiData.duration;
+        }
+        fullData['totalTime'] = this.pageDuration;
+
+        return fullData;
     }
 }

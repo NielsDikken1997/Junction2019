@@ -25,6 +25,7 @@ export class TrackingComponent implements OnInit {
       csvData = window.localStorage.getItem('train_data');
     }
 
+    // TODO: use tracking service
     let aoiDataRaw = JSON.parse(window.localStorage.getItem('aois'));
     let aoiData: any = Object.values(aoiDataRaw)[0];
 

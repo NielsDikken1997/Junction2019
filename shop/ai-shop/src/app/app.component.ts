@@ -20,7 +20,7 @@ export class AppComponent {
       .subscribe(() => {
         setTimeout(() => {
           this.trackingService.start();
-        }, 100);
+        }, 10);
         
       });
 
