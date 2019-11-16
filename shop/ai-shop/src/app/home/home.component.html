@@ -1,91 +1,60 @@
-
-<div class="columns">
-    <div class="column">
-        <a [routerLink]="'/product/2'">
-            <mat-card class="lamp-card" data-aoi="lampcard">
-                <!-- <mat-card-header>
-                    <mat-card-title>The lamp</mat-card-title>
-                    <mat-card-subtitle>Super nice</mat-card-subtitle>
-                </mat-card-header> -->
-                <img mat-card-image src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="height:400px;object-fit:cover" alt="Photo of a lamp">
-                <mat-card-content>
-                    <p>
-                    Designer desk lamp - Findeso
-                    </p>
-                    <p data-aoi-click>120€</p>
-                </mat-card-content>
-                <!-- <mat-card-actions>
-                    <a mat-button color="primary" [routerLink]="'/product/1'">MORE</a>
-                    <button mat-button>BUY</button>
-                </mat-card-actions> -->
-            </mat-card>
-        </a>
+<div class="flex">
+<aside class="w-64 p-10">
+    <div class="my-2 text-2xl"><b>Jacket /</b></div>
+    <div class="my-2 text-2xl">Top /</div>
+    <div class="my-2 text-2xl">Bottom /</div>
+    <div class="my-2 text-2xl">Shoes /</div>
+</aside>
+<div class="flex-1 pt-10 pr-12">
+    <div class="flex -mx-2">
+        <div class="rounded-lg px-2 relative carda">
+            <img class="rounded-lg" src="assets/j1.jpg"/>
+            <a [routerLink]="'/product/1'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                <span class="text-white">Equiped jacket winter ready</span>
+                <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 62</b></div>
+            </a>
+        </div>
+        <div class="group rounded-lg px-2 relative carda">
+                <img class="rounded-lg" src="assets/j2.jpg"/>
+                <a [routerLink]="'/product/2'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                    <span class="text-white">Denim aviator jacket with contrast borg collar</span>
+                    <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 84</b></div>
+                </a>
+            </div>
+            <div class="group rounded-lg px-2 relative carda">
+                <img class="rounded-lg" src="assets/j3.jpg"/>
+                <a [routerLink]="'/product/1'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                    <span class="text-white">Lipsy denim jacket</span>
+                    <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 60</b></div>
+                </a>
+            </div>
     </div>
-    <div class="column">
-        <a [routerLink]="'/product/2'">
-            <mat-card class="jeans-card" data-aoi="jeanscard">
-                <!-- <mat-card-header>
-                    <mat-card-title>The jeans</mat-card-title>
-                    <mat-card-subtitle>Super nice</mat-card-subtitle>
-                </mat-card-header> -->
-                <img mat-card-image src="https://images.pexels.com/photos/52574/pexels-photo-52574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="height:400px;object-fit:cover" alt="Photo of a jeans">
-                <mat-card-content>
-                    <p>
-                    Skinny jeans with ripped knees - MyBrand
-                    </p>
-                    <p>55€</p>
-                </mat-card-content>
-                <!-- <mat-card-actions>
-                    <a mat-button color="primary" [routerLink]="'/product/2'">MORE</a>
-                    <button mat-button>BUY</button>
-                </mat-card-actions> -->
-            </mat-card>
-        </a>
-    </div>
+    <div class="flex -mx-2 mt-10">
+            <div class="flex-1 rounded-lg px-2 relative carda">
+                <img class="rounded-lg" src="assets/j4.jpeg"/>
+                <a [routerLink]="'/product/1'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                    <span class="text-white">Denim jacket with borg detail in black</span>
+                    <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 62</b></div>
+                </a>
+            </div>
+            <div class="flex-1 group rounded-lg px-2 relative carda">
+                    <img class="rounded-lg" src="assets/j5.jpeg"/>
+                    <a [routerLink]="'/product/2'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                        <span class="text-white">Superdry Ella Everest icon parka jacket</span>
+                        <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 84</b></div>
+                    </a>
+                </div>
+                <div class="flex-1 group rounded-lg px-2 relative carda">
+                    <img class="rounded-lg" src="assets/j6.png"/>
+                    <a [routerLink]="'/product/1'" class="text-3xl hidden absolute left-0 p-10 top-0 bg-green-500 text-white h-full rounded-lg">
+                        <span class="text-white">Leather look statement belt jacket in black</span>
+                        <div class="absolute bottom-0 right-0 m-10 text-white"><b>€ 60</b></div>
+                    </a>
+                </div>
+        </div>
+    
+</div>
 </div>
 
 
-<div class="columns">
-        <div class="column">
-            <a [routerLink]="'/product/2'">
-                <mat-card class="lamp-card" data-aoix="othercard1">
-                    <!-- <mat-card-header>
-                        <mat-card-title>The lamp</mat-card-title>
-                        <mat-card-subtitle>Super nice</mat-card-subtitle>
-                    </mat-card-header> -->
-                    <img mat-card-image src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="height:400px;object-fit:cover" alt="Photo of a lamp">
-                    <mat-card-content>
-                        <p>
-                        TEST1
-                        </p>
-                        <p>120€</p>
-                    </mat-card-content>
-                    <!-- <mat-card-actions>
-                        <a mat-button color="primary" [routerLink]="'/product/1'">MORE</a>
-                        <button mat-button>BUY</button>
-                    </mat-card-actions> -->
-                </mat-card>
-            </a>
-        </div>
-        <div class="column">
-            <a [routerLink]="'/product/2'">
-                <mat-card class="jeans-card" data-aoix="othercard2">
-                    <!-- <mat-card-header>
-                        <mat-card-title>The jeans</mat-card-title>
-                        <mat-card-subtitle>Super nice</mat-card-subtitle>
-                    </mat-card-header> -->
-                    <img mat-card-image src="https://images.pexels.com/photos/52574/pexels-photo-52574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="height:400px;object-fit:cover" alt="Photo of a jeans">
-                    <mat-card-content>
-                        <p>
-                        TEST2
-                        </p>
-                        <p>55€</p>
-                    </mat-card-content>
-                    <!-- <mat-card-actions>
-                        <a mat-button color="primary" [routerLink]="'/product/2'">MORE</a>
-                        <button mat-button>BUY</button>
-                    </mat-card-actions> -->
-                </mat-card>
-            </a>
-        </div>
-    </div>
+<a [routerLink]="'/product/2'">link</a>

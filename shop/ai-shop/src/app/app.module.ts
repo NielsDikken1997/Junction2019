@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule } from  '@angular/material';
 
@@ -18,6 +19,7 @@ import { TrackingComponent } from './tracking/tracking.component';
     AppComponent,
     ProductDetailComponent,
     CheckoutComponent,
+    LoginComponent,
     HomeComponent,
     CartComponent,
     TrackingComponent
