@@ -20,6 +20,7 @@ import { AddressComponent } from './address/address.component';
     ProductDetailComponent,
     CheckoutComponent,
     LoginComponent,
+    AddressComponent,
     HomeComponent,
     CartComponent,
     AddressComponent
