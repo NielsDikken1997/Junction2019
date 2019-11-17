@@ -7,7 +7,7 @@ import { TrackingService } from '../tracking.service';
   styleUrls: ['./done.component.scss']
 })
 export class DoneComponent implements OnInit {
-  private isShakyCustomer: boolean;
+  isShakyCustomer: boolean;
 
   constructor(private trackingService: TrackingService) { }
 
