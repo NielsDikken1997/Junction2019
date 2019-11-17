@@ -30,7 +30,7 @@
     <div class="flex -mx-2">
         <div class="w-1/2 px-2">
             <div class="bg-white rounded-lg">
-                <div class="py-3 text-white bg-teal-600 rounded-t">
+                <div class="py-3 text-white bg-green-500 rounded-t">
                     <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Details</div>
                     <div class="inline-block text-xl font w-1/4 text-center">Look & Fit</div>
                     <div class="inline-block text-xl font w-1/4 text-center">Wash info</div>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="w-1/2 px-2">
-            <div class="bg-teal-600 h-full rounded-lg">
+            <div class="bg-green-500 h-full rounded-lg">
                 <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
             </div>
         </div>
@@ -61,38 +61,77 @@
 
     <!-- Reviews -->
     <div class="flex -mx-2">
-        <div class="w-1/2 px-2">
+        <div class="w-1/2">
             <div class="bg-white rounded-lg">
-                <div class="py-3 text-white bg-teal-600 rounded-t">
+                <div class="py-3 text-white bg-green-500 rounded-tl border-b border-gray-400">
                     <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Reviews</div>
                 </div>
-                <div class="rounded-b">
+                <div class="rounded-bl">
                     <ul>
-                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Nesli
-                            <img src="../../assets/5Stars.png" class="inline-block content-end h-5">
+                        <li (click)="review = 1" [ngClass]="{'text-white bg-green-500': review==1}"
+                            class="h-15 py-5 px-5 hover:bg-green-500 hover:text-white font-bold cursor-pointer">Nesli
+                            <img src="../../assets/5Stars.png" class="inline-block float-right h-5">
                         </li>
-                        <li class="h-15 py-5 px-5 bg-teal-600 text-white font-bold">Chloé
-                            <img src="../../assets/4Stars.png" class="inline-block align-right h-5">
+                        <li (click)="review = 2" [ngClass]="{'text-white bg-green-500': review==2}"
+                            class="h-15 py-5 px-5 bg-gray-400 hover:bg-green-500 hover:text-white font-bold cursor-pointer">
+                            Chloé
+                            <img src="../../assets/4Stars.png" class="inline-block float-right h-5">
                         </li>
-                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Yanitza
-                            <img src="../../assets/5Stars.png" class="inline-block align-right h-5">
+                        <li (click)="review = 3" [ngClass]="{'text-white bg-green-500': review==3}"
+                            class="h-15 py-5 px-5 hover:bg-green-500 hover:text-white font-bold cursor-pointer">Yanitza
+                            <img src="../../assets/5Stars.png" class="inline-block float-right h-5">
                         </li>
-                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Naomi
-                            <img src="../../assets/4Stars.png" class="inline-block align-right h-5">
+                        <li (click)="review = 4" [ngClass]="{'text-white bg-green-500': review==4}"
+                            class="h-15 py-5 px-5 bg-gray-400 hover:bg-green-500 hover:text-white hover:rounded-b font-bold cursor-pointer">
+                            Naomi
+                            <img src="../../assets/4Stars.png" class="inline-block float-right h-5">
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="w-1/2 px-2">
-            <div class="bg-teal-600 h-full rounded-lg">
-                <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
+        <div class="w-1/2">
+            <div class="bg-green-500 h-full rounded-r">
+                <div *ngIf="review == 1" class="text-white p-10">
+                    <div class="text-xl font-bold py-2">Nesli</div>
+                    NESLI ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt magna eu libero molestie,
+                    at placerat mi porttitor. Etiam dictum justo et nisi elementum, at elementum ex porttitor. Nulla
+                    feugiat orci vel diam semper, malesuada laoreet risus suscipit. Morbi sit amet ex a neque laoreet
+                    suscipit. Nunc venenatis viverra ullamcorper. Donec dui metus, vestibulum a mi vel, commodo pharetra
+                    eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ex
+                    nulla, dignissim lobortis dolor a, auctor vestibulum libero. Etiam eros mauris, sollicitudin a erat
+                    ut, lacinia laoreet elit.
+                </div>
+                <div *ngIf="review == 2" class="text-white p-10">
+                    <div class="text-xl font-bold py-2">Chloé</div>
+                    Very fresh style and comfy !
+                    <br><br>
+                    Still, it’s a bit loose on the sleeves, you have to like it! 
+                </div>
+                <div *ngIf="review == 3" class="text-white p-10">
+                    <div class="text-xl font-bold py-2">Yanitza</div>
+                    YANITZA ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt magna eu libero
+                    molestie,
+                    at placerat mi porttitor. Etiam dictum justo et nisi elementum, at elementum ex porttitor. Nulla
+                    feugiat orci vel diam semper, malesuada laoreet risus suscipit. Morbi sit amet ex a neque laoreet
+                    suscipit. Nunc venenatis viverra ullamcorper. Donec dui metus, vestibulum a mi vel, commodo pharetra
+                    eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ex
+                    nulla, dignissim lobortis dolor a, auctor vestibulum libero. Etiam eros mauris, sollicitudin a erat
+                    ut, lacinia laoreet elit.
+                </div>
+                <div *ngIf="review == 4" class="text-white p-10">
+                    <div class="text-xl font-bold py-2">Naomi</div>
+                    NAOMI ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt magna eu libero molestie,
+                    at placerat mi porttitor. Etiam dictum justo et nisi elementum, at elementum ex porttitor. Nulla
+                    feugiat orci vel diam semper, malesuada laoreet risus suscipit. Morbi sit amet ex a neque laoreet
+                    suscipit. Nunc venenatis viverra ullamcorper. Donec dui metus, vestibulum a mi vel, commodo pharetra
+                    eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ex
+                    nulla, dignissim lobortis dolor a, auctor vestibulum libero. Etiam eros mauris, sollicitudin a erat
+                    ut, lacinia laoreet elit.
+                </div>
             </div>
         </div>
     </div>
-    <!-- <div>
-        <img class="pb-10" src="../../assets/Review2.png" alt="picture of reviews">
-    </div> -->
     <div class="h-16 bg-transparent"></div>
 </div>
 
