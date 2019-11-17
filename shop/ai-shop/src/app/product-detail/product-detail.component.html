@@ -29,14 +29,14 @@
     <!-- Full details -->
     <div class="flex -mx-2">
         <div class="w-1/2 px-2">
-            <div id="1" class="bg-white rounded-lg">
-                <div class="py-3">
-                    <div class="inline-block text-xl font-bold w-1/4 text-center font-bold underline">Details</div>
-                    <div class="inline-block text-xl font-bold w-1/4 text-center">Look & Fit</div>
-                    <div class="inline-block text-xl font-bold w-1/4 text-center">Wash info</div>
-                    <div class="inline-block text-xl font-bold w-1/4 text-center">Origin</div>
+            <div class="bg-white rounded-lg">
+                <div class="py-3 text-white bg-teal-600 rounded-t">
+                    <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Details</div>
+                    <div class="inline-block text-xl font w-1/4 text-center">Look & Fit</div>
+                    <div class="inline-block text-xl font w-1/4 text-center">Wash info</div>
+                    <div class="inline-block text-xl font w-1/4 text-center">Origin</div>
                 </div>
-                <div class="text-xl font-bold pl-12 py-2">Jacket by ASOS DESIGN</div>
+                <div class="text-xl font-bold pl-12 pt-3 pb-2">Jacket by ASOS DESIGN</div>
                 <div class="pl-12 pb-5">
                     - Part of our responsible edit <br>
                     - Zero-waste design <br>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="w-1/2 px-2">
-            <div class="bg-teal-900 h-full rounded-lg">
+            <div class="bg-teal-600 h-full rounded-lg">
                 <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
             </div>
         </div>
@@ -60,18 +60,59 @@
     <div class="h-10 w-full"></div>
 
     <!-- Reviews -->
-    <div>
-        <img class="pb-10" src="../../assets/Review2.png" alt="picture of reviews">
+    <div class="flex -mx-2">
+        <div class="w-1/2 px-2">
+            <div class="bg-white rounded-lg">
+                <div class="py-3 text-white bg-teal-600 rounded-t">
+                    <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Reviews</div>
+                </div>
+                <div class="rounded-b">
+                    <ul>
+                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Nesli
+                            <img src="../../assets/5Stars.png" class="inline-block content-end h-5">
+                        </li>
+                        <li class="h-15 py-5 px-5 bg-teal-600 text-white font-bold">Chloé
+                            <img src="../../assets/4Stars.png" class="inline-block align-right h-5">
+                        </li>
+                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Yanitza
+                            <img src="../../assets/5Stars.png" class="inline-block align-right h-5">
+                        </li>
+                        <li class="h-15 py-5 px-5 hover:bg-teal-600 hover:text-white font-bold">Naomi
+                            <img src="../../assets/4Stars.png" class="inline-block align-right h-5">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 px-2">
+            <div class="bg-teal-600 h-full rounded-lg">
+                <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
+            </div>
+        </div>
     </div>
+    <!-- <div>
+        <img class="pb-10" src="../../assets/Review2.png" alt="picture of reviews">
+    </div> -->
+    <div class="h-16 bg-transparent"></div>
 </div>
 
 <div class="h-16 bg-transparent"></div>
 <div class="fixed bottom-0 left-0 h-16 bg-white w-full border-t-2 border-black">
     <div class="inline-block w-1/3 font-bold text-xl pt-3 text-center">Denim aviator jacket</div>
     <div class="inline-block w-2/3 pt-3 pr-5 text-right">
-        <button [routerLink]="'/cart'"
-            class="bg-transparent text-black border border-black hover:bg-black hover:text-white hover:border-transparent font-bold py-2 px-4 rounded">
+        <button *ngIf="!checkout" (click)="checkout = true"
+            class="bg-black text-white border hover:bg-green-500 py-2 px-4 rounded-lg">
             Add to cart
         </button>
+        <div *ngIf="checkout" class="inline-flex">
+            <button [routerLink]="'/cart'"
+                class="bg-black border-l-1 border white text-white hover:bg-green-500 py-2 px-4 rounded-l">
+                See Cart
+            </button>
+            <button [routerLink]="'/login'"
+                class="bg-black border-r-1 border white text-white hover:bg-green-500 py-2 px-4 rounded-r">
+                Checkout
+            </button>
+        </div>
     </div>
 </div>
