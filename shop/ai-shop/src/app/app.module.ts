@@ -15,6 +15,8 @@ import { CartComponent } from './cart/cart.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { AddressComponent } from './address/address.component';
 import { LastcheckComponent } from './lastcheck/lastcheck.component';
+import { PaymentComponent } from './payment/payment.component';
+import { DoneComponent } from './done/done.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,15 @@ import { LastcheckComponent } from './lastcheck/lastcheck.component';
     CheckoutComponent,
     LoginComponent,
     LastcheckComponent,
+    PaymentComponent,
     AddressComponent,
     HomeComponent,
     CartComponent,
     TrackingComponent,
     AddressComponent,
-    LastcheckComponent
+    LastcheckComponent,
+    PaymentComponent,
+    DoneComponent
   ],
   imports: [
     BrowserModule,

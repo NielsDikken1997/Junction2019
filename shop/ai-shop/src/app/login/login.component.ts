@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackingService } from '../tracking.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  isShakyCustomer: boolean;
 
-  constructor() { }
+  constructor(private trackingService: TrackingService) { }
 
   ngOnInit() {
+    this.loadModel();
   }
-
+  async loadModel() {
+    this.isShakyCustomer = await this.trackingService.predictReturn();
+  }
 }

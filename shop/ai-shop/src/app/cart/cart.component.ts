@@ -8,8 +8,8 @@ import { TrackingService } from '../tracking.service';
 })
 export class CartComponent implements OnInit {
   private model: tf.LayersModel;
-  private isShakyCustomer: boolean;
-  private data;
+  isShakyCustomer: boolean;
+  data;
 
   constructor(private trackingService: TrackingService) { }
 
@@ -18,35 +18,35 @@ export class CartComponent implements OnInit {
   }
 
   async loadModel() {
-    this.model = await tf.loadLayersModel('/assets/model.json');
-    // console.log(this.model);
+    // this.model = await tf.loadLayersModel('/assets/model.json');
+    // // console.log(this.model);
 
-    let trackingData = this.trackingService.generateTrackingSummary();
+    // let trackingData = this.trackingService.generateTrackingSummary();
 
-    // totaltime, picture_clicks, picture_time, picture_dwell, summary_clicks, summary_time, summary_dwell, descr_clicks, descr_time, descr_dwell, review_clicks, review_time, review_dwell
-    const tensor = tf.tensor([
-      trackingData['totalTime'],
-      trackingData['images_click'],
-      trackingData['images_visible'],
-      trackingData['images_hover'],
-      trackingData['summary_click'],
-      trackingData['summary_visible'],
-      trackingData['summary_hover'],
-      trackingData['details_click'],
-      trackingData['details_visible'],
-      trackingData['details_hover'],
-      trackingData['reviews_click'],
-      trackingData['reviews_visible'],
-      trackingData['reviews_hover'],
-    ],
-       [1, 13],'int32');
+    // // totaltime, picture_clicks, picture_time, picture_dwell, summary_clicks, summary_time, summary_dwell, descr_clicks, descr_time, descr_dwell, review_clicks, review_time, review_dwell
+    // const tensor = tf.tensor([
+    //   trackingData['totalTime'],
+    //   trackingData['images_click'],
+    //   trackingData['images_visible'],
+    //   trackingData['images_hover'],
+    //   trackingData['summary_click'],
+    //   trackingData['summary_visible'],
+    //   trackingData['summary_hover'],
+    //   trackingData['details_click'],
+    //   trackingData['details_visible'],
+    //   trackingData['details_hover'],
+    //   trackingData['reviews_click'],
+    //   trackingData['reviews_visible'],
+    //   trackingData['reviews_hover'],
+    // ],
+    //    [1, 13],'int32');
 
-    this.data = JSON.stringify(trackingData);
-    const pred = (this.model.predict(tensor) as tf.Tensor).dataSync();
-    console.log(pred);
-    const willReturn = pred.indexOf(Math.min(...pred)) === 1;
+    // this.data = JSON.stringify(trackingData);
+    // const pred = (this.model.predict(tensor) as tf.Tensor).dataSync();
+    // console.log(pred);
+    // const willReturn = pred.indexOf(Math.min(...pred)) === 1;
     
-    this.isShakyCustomer = willReturn;
+    this.isShakyCustomer = await this.trackingService.predictReturn();
   }
 
 }

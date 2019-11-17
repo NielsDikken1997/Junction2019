@@ -2,10 +2,10 @@
     <div class="flex mb-4">
         <div class="w-1/2 h-full" data-aoi="images">
             <div class="inline-block w-1/6 align-top h-full">
-                <img class="h-1/4 border-b-4 border-black rounded-lg" src="../../assets/JacketGirl.png" data-aoi-click>
-                <img class="h-1/4 pt-1 pb-1 rounded-lg" src="../../assets/JacketGirl1.png" data-aoi-click>
-                <img class="h-1/4 pb-1 rounded-lg" src="../../assets/JacketGirl2.png" data-aoi-click>
-                <img class="h-1/4 rounded-lg" src="../../assets/JacketGirl3.png" data-aoi-click>
+                <img class="h-1/4 border-b-4 border-green-500 rounded-lg" src="../../assets/JacketGirl.png" data-aoi-click>
+                <img class="h-1/4 rounded-lg hover:border-green-500 border-b-4" src="../../assets/JacketGirl1.png" data-aoi-click>
+                <img class="h-1/4 rounded-lg hover:border-green-500 border-b-4" src="../../assets/JacketGirl2.png" data-aoi-click>
+                <img class="h-1/4 rounded-lg hover:border-green-500 border-b-4" src="../../assets/JacketGirl3.png" data-aoi-click>
             </div>
             <div class="inline-block w-3/4 h-full ">
                 <img class="rounded-lg px-2" src="../../assets/JacketGirl.png">
@@ -30,28 +30,40 @@
     <div class="flex -mx-2">
         <div class="w-1/2 px-2">
             <div class="bg-white rounded-lg">
-                <div class="py-3 text-white bg-green-500 rounded-t">
-                    <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Details</div>
-                    <div class="inline-block text-xl font w-1/4 text-center">Look & Fit</div>
-                    <div class="inline-block text-xl font w-1/4 text-center">Wash info</div>
-                    <div class="inline-block text-xl font w-1/4 text-center">Origin</div>
+                <div class="py-3 text-white bg-black rounded-lg">
+                    <div (click)="productDetails = 1" [ngClass]="{'font-bold': productDetails==1}" class="inline-block text-xl w-1/4 text-center hover:font-bold">Details</div>
+                    <div (click)="productDetails = 2" [ngClass]="{'font-bold': productDetails==2}" class="hover:font-bold inline-block text-xl font w-1/4 text-center">Look & Fit</div>
+                    <div (click)="productDetails = 3" [ngClass]="{'font-bold': productDetails==3}" class="inline-block text-xl font w-1/4 text-center hover:font-bold">Wash info</div>
+                    <div (click)="productDetails = 4" [ngClass]="{'font-bold': productDetails==4}" class="inline-block text-xl font w-1/4 text-center hover:font-bold">Origin</div>
+                </div>
+                <div *ngIf="productDetails == 1" class="h-64">
+                    <div class="text-xl font-bold pl-12 pt-3 pb-2">Jacket by ASOS DESIGN</div>
+                    <div class="pl-12 pb-5">
+                        - Part of our responsible edit <br>
+                        - Zero-waste design <br>
+                        - Created using every inch of fabric, so nothing goes to waste <br>
+                        - Borg collar <br>
+                        - Double-breasted opening <br>
+                        - Functional pockets <br>
+                        - Regular fit <br>
+                        - Just select your usual size <br>
+                    </div>
+                </div>
+                <div *ngIf="productDetails == 2"  class="h-64 p-6 text-2xl">
+                    Regular fit
+                </div>
+                <div *ngIf="productDetails == 3" class="h-64 p-6 text-2xl">
+                    No soap
+                </div>
+                <div *ngIf="productDetails == 4"  class="h-64 p-6 text-2xl">
+                    Made in Turkey
+                </div>
 
-                </div>
-                <div class="text-xl font-bold pl-12 pt-3 pb-2">Jacket by ASOS DESIGN</div>
-                <div class="pl-12 pb-5">
-                    - Part of our responsible edit <br>
-                    - Zero-waste design <br>
-                    - Created using every inch of fabric, so nothing goes to waste <br>
-                    - Borg collar <br>
-                    - Double-breasted opening <br>
-                    - Functional pockets <br>
-                    - Regular fit <br>
-                    - Just select your usual size <br>
-                </div>
             </div>
         </div>
         <div class="w-1/2 px-2">
-            <div class="bg-green-500 h-full rounded-lg">
+            <div class="bg-green-500 h-full rounded-lg bg-cover bg-center" style="background-image: url('../assets/hand.png')">
+
                 <!-- <img class="w-full object-cover object-top" src="../../assets/JacketGirl1.png"> -->
             </div>
         </div>
@@ -64,11 +76,13 @@
     <div class="flex -mx-2">
         <div class="w-1/2">
             <div class="bg-white rounded-lg">
-                <div class="py-3 text-white bg-green-500 rounded-tl border-b border-gray-400">
+                <div class="py-3 text-white bg-green-500 rounded-t-lg border-b border-gray-400">
+
                     <div class="inline-block text-xl font-bold w-1/4 text-center font-bold">Reviews</div>
                 </div>
                 <div class="rounded-bl">
                     <ul>
+
                         <li (click)="review = 1" [ngClass]="{'text-white bg-green-500': review==1}"
                             class="h-15 py-5 px-5 hover:bg-green-500 hover:text-white font-bold cursor-pointer">Nesli
                             <img src="../../assets/5Stars.png" class="inline-block float-right h-5">
@@ -86,6 +100,7 @@
                             class="h-15 py-5 px-5 bg-gray-400 hover:bg-green-500 hover:text-white hover:rounded-b font-bold cursor-pointer">
                             Naomi
                             <img src="../../assets/4Stars.png" class="inline-block float-right h-5">
+
                         </li>
                     </ul>
                 </div>
@@ -130,6 +145,7 @@
                     nulla, dignissim lobortis dolor a, auctor vestibulum libero. Etiam eros mauris, sollicitudin a erat
                     ut, lacinia laoreet elit.
                 </div>
+
             </div>
         </div>
 

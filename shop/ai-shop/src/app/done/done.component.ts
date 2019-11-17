@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TrackingService } from '../tracking.service';
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.scss']
+  selector: 'app-done',
+  templateUrl: './done.component.html',
+  styleUrls: ['./done.component.scss']
 })
-export class AddressComponent implements OnInit {
+export class DoneComponent implements OnInit {
   isShakyCustomer: boolean;
 
   constructor(private trackingService: TrackingService) { }

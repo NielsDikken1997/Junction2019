@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  private checkout = false;
-  private review = 2;
+
+  checkout = false;
+  review = 2;
+  productDetails = 1;
+
 
   constructor() { }
 
