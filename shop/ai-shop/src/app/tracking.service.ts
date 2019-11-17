@@ -27,13 +27,22 @@ export class TrackingService {
     private observer: any;
 
     start() {
-        console.log(document.querySelector('[data-aoi]'))
+        this.id = null;
+        this.pageDuration = 0;
+
+        this.aoiVisible = {};
+        this.aoiEntries = {};
+        this.aoiHovered = {};
+        this.aoiHoveredEntries = {};
+        this.aoiInteracted = {};
+
+        // console.log(document.querySelector('[data-aoi]'))
         if (!document.querySelector('[data-aoi]')) {
+            this.startTime = 0;
             return;
         }
-        this.model = null;
 
-        this.pageDuration = 0;
+        this.model = null;
         this.id = Date.now();
         this.startTime = Date.now();
         // reset aois, one product at a time only for now
@@ -114,11 +123,12 @@ export class TrackingService {
             this.pageDuration = Date.now() - this.startTime;
             document.removeEventListener('mousemove', this.mouseMoveListener);
             this.save();
+            if (this.observer) {
+                this.observer.disconnect();
+            }
+            // this.predictReturn();
         }
         
-        if (this.observer) {
-            this.observer.disconnect();
-        }
     }
 
     createMouseMoveHandler() {
@@ -282,8 +292,8 @@ export class TrackingService {
         [1, 13],'int32');
 
         const pred = (this.model.predict(tensor) as tf.Tensor).dataSync();
-        // console.log(pred);
         this.willReturn = pred.indexOf(Math.min(...pred)) === 1;
+        console.log("Will return? " + this.willReturn);
         
         return this.willReturn;
     }

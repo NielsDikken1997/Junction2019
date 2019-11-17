@@ -10,15 +10,24 @@ import { LastcheckComponent } from './lastcheck/lastcheck.component';
 import { AddressComponent } from './address/address.component';
 import { CartComponent } from './cart/cart.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { PredictionResolver } from './prediction.resolve';
 
 
 const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'done', component: DoneComponent },
+  { path: 'login', component: LoginComponent, resolve: { 
+    isShakyCustomer: PredictionResolver
+   } },
+  { path: 'payment', component: PaymentComponent, resolve: { 
+    isShakyCustomer: PredictionResolver
+   }  },
+  { path: 'done', component: DoneComponent, resolve: { 
+    isShakyCustomer: PredictionResolver
+   }  },
   { path: 'lastcheck', component: LastcheckComponent },
-  { path: 'address', component: AddressComponent },
+  { path: 'address', component: AddressComponent, resolve: { 
+    isShakyCustomer: PredictionResolver
+   }  },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
   { path: 'tracking', component: TrackingComponent },
@@ -28,6 +37,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    PredictionResolver
+  ]
 })
 export class AppRoutingModule { }
