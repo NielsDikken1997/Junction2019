@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackingService } from '../tracking.service';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class PaymentComponent implements OnInit {
   private isShakyCustomer: boolean;
 
   constructor(private trackingService: TrackingService) { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import * as tf from '@tensorflow/tfjs';
 
 @Injectable({
     providedIn: 'root',
@@ -31,6 +31,7 @@ export class TrackingService {
         if (!document.querySelector('[data-aoi]')) {
             return;
         }
+        this.model = null;
 
         this.pageDuration = 0;
         this.id = Date.now();
@@ -249,4 +250,42 @@ export class TrackingService {
 
         return fullData;
     }
+
+    private model: tf.LayersModel;
+    private willReturn;
+    async predictReturn() {
+        if (this.model) {
+            return this.willReturn;
+        }
+        
+        this.model = await tf.loadLayersModel('/assets/model.json');
+        // console.log(this.model);
+
+        let trackingData = this.generateTrackingSummary();
+
+        // totaltime, picture_clicks, picture_time, picture_dwell, summary_clicks, summary_time, summary_dwell, descr_clicks, descr_time, descr_dwell, review_clicks, review_time, review_dwell
+        const tensor = tf.tensor([
+        trackingData['totalTime'],
+        trackingData['images_click'],
+        trackingData['images_visible'],
+        trackingData['images_hover'],
+        trackingData['summary_click'],
+        trackingData['summary_visible'],
+        trackingData['summary_hover'],
+        trackingData['details_click'],
+        trackingData['details_visible'],
+        trackingData['details_hover'],
+        trackingData['reviews_click'],
+        trackingData['reviews_visible'],
+        trackingData['reviews_hover'],
+        ],
+        [1, 13],'int32');
+
+        const pred = (this.model.predict(tensor) as tf.Tensor).dataSync();
+        // console.log(pred);
+        this.willReturn = pred.indexOf(Math.min(...pred)) === 1;
+        
+        return this.willReturn;
+    }
+
 }

@@ -14,6 +14,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CartComponent } from './cart/cart.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { AddressComponent } from './address/address.component';
+import { LastcheckComponent } from './lastcheck/lastcheck.component';
+import { PaymentComponent } from './payment/payment.component';
+import { DoneComponent } from './done/done.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,16 @@ import { AddressComponent } from './address/address.component';
     ProductDetailComponent,
     CheckoutComponent,
     LoginComponent,
+    LastcheckComponent,
+    PaymentComponent,
     AddressComponent,
     HomeComponent,
     CartComponent,
     TrackingComponent,
-    AddressComponent
+    AddressComponent,
+    LastcheckComponent,
+    PaymentComponent,
+    DoneComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<div class="w-full text-center">
+        <div class="py-6 bg-white inline-block rounded-full text-xl px-8 m-4">1</div>
+        <div class="py-6 bg-white inline-block rounded-full text-xl px-8 m-4">2</div>
+        <div *ngIf="isShakyCustomer" class="py-6 bg-white inline-block rounded-full text-xl px-8 m-4">3</div>
+        <div *ngIf="isShakyCustomer" class="py-6 bg-black inline-block rounded-full text-white text-xl px-8 m-4 relative text-center">4
+                <span class="absolute top-0 mt-20 text-black -m-20 w-40 text-center block">Payment</span>
+        </div>
+        <div *ngIf="isShakyCustomer" class="py-6 bg-white inline-block rounded-full text-xl px-8 m-4">5</div>
+        
+        <div *ngIf="!isShakyCustomer" class="py-6 bg-black inline-block rounded-full text-white text-xl px-8 m-4 relative text-center">3
+                <span class="absolute top-0 mt-20 text-black -m-20 w-40 text-center block">Payment</span>
+        </div>
+        <div *ngIf="!isShakyCustomer" class="py-6 bg-white inline-block rounded-full text-xl px-8 m-4">4</div>
+    </div>
+        <div class="flex mb-4 mt-20">
+            <div class="w-1/2 mx-auto">
+                <div class="ml-40 mr-40">
+                    <div>
+                            <b>Master Card</b><br>
+                            **** **** **** *876<br/>
+                            <u class="my-8 block">Change payment</u>
+                    </div>
+                    <a  [routerLink]="'/done'"  class="my-3 bg-black text-white p-3 rounded-lg w-full  hover:bg-green-500 block text-center">Pay</a>
+                </div>
+            </div>
+        </div>
+    <div>
