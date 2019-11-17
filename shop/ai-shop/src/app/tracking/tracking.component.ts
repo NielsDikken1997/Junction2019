@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingComponent implements OnInit {
 
-  private aois = [];
-  private aoiHover = {};
-  private aoiVisible = {};
-  private aoiClick = {};
-  private pageDuration = 0;
+  aois = [];
+  aoiHover = {};
+  aoiVisible = {};
+  aoiClick = {};
+  pageDuration = 0;
 
-  private fullData = "";
-  private csvData = "";
+  fullData = "";
+  csvData = "";
 
   constructor() { }
 

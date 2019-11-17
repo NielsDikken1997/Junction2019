@@ -8,8 +8,8 @@ import { TrackingService } from '../tracking.service';
 })
 export class CartComponent implements OnInit {
   private model: tf.LayersModel;
-  private isShakyCustomer: boolean;
-  private data;
+  isShakyCustomer: boolean;
+  data;
 
   constructor(private trackingService: TrackingService) { }
 
