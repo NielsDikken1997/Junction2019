@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
+import { DoneComponent } from './done/done.component';
 import { PaymentComponent } from './payment/payment.component';
 import { LastcheckComponent } from './lastcheck/lastcheck.component';
 import { AddressComponent } from './address/address.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'done', component: DoneComponent },
   { path: 'lastcheck', component: LastcheckComponent },
   { path: 'address', component: AddressComponent },
   { path: 'product/:id', component: ProductDetailComponent },

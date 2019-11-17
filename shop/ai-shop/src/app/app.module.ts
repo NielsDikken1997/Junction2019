@@ -16,6 +16,7 @@ import { TrackingComponent } from './tracking/tracking.component';
 import { AddressComponent } from './address/address.component';
 import { LastcheckComponent } from './lastcheck/lastcheck.component';
 import { PaymentComponent } from './payment/payment.component';
+import { DoneComponent } from './done/done.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PaymentComponent } from './payment/payment.component';
     TrackingComponent,
     AddressComponent,
     LastcheckComponent,
-    PaymentComponent
+    PaymentComponent,
+    DoneComponent
   ],
   imports: [
     BrowserModule,
